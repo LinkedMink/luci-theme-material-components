@@ -1,0 +1,24 @@
+name: Publish Tag
+
+concurrency: 
+  group: publish
+  cancel-in-progress: true
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  build:
+    uses: LinkedMink/.github/.github/workflows/build-npm-package.yml@main
+    with:
+      uploadBuild: true
+  publish:
+    needs: build
+    uses: LinkedMink/.github/.github/workflows/publish-artifacts-for-tag.yml@main
+    with:
+      uploadToTag: ${{ github.ref_name }}
+      uploadedBuildName: ${{ needs.build.outputs.uploadedBuildName }} 
+    secrets:
+      REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
