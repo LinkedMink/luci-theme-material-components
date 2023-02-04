@@ -1,0 +1,21 @@
+@use "@fontsource/roboto/scss/mixins";
+@use "@material/typography/mdc-typography";
+
+@use "@material/floating-label/mdc-floating-label";
+@use "@material/line-ripple/mdc-line-ripple";
+@use "@material/notched-outline/mdc-notched-outline";
+@use "@material/textfield";
+
+@use "@material/button/styles" as button;
+@use "@material/icon-button/styles"as icon-button;
+
+@use "@material/top-app-bar/mdc-top-app-bar";
+@use "@material/drawer";
+@use "@material/list";
+
+@include textfield.core-styles;
+
+@include drawer.core-styles;
+@include drawer.dismissible-core-styles;
+@include drawer.modal-core-styles;
+@include list.deprecated-core-styles;
