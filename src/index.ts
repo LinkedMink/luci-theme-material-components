@@ -1,9 +1,10 @@
+import {MDCDrawer} from "@material/drawer";
 import { MDCTopAppBar } from "@material/top-app-bar";
 import "./styles.scss";
-import {MDCRipple} from '@material/ripple';
 
-const buttonRipple = new MDCRipple(document.querySelector('.mdc-button')!);
-const topAppBarElement = document.querySelector(".mdc-top-app-bar");
-console.log(topAppBarElement);
-const topAppBar = new MDCTopAppBar(topAppBarElement!);
-console.log("Loaded");
+const drawer = MDCDrawer.attachTo(document.querySelector<HTMLElement>('.mdc-drawer')!);
+const topAppBar = MDCTopAppBar.attachTo(document.getElementById('app-bar')!);
+topAppBar.setScrollTarget(document.getElementById('main-content')!);
+topAppBar.listen('MDCTopAppBar:nav', () => {
+  drawer.open = !drawer.open;
+});

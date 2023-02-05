@@ -34,6 +34,10 @@ export const commonWebpackConfig: Configuration = {
           { loader: "sass-loader" },
         ],
       },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource',
+      },
       { test: /\.([cm]?ts|tsx)$/, loader: "ts-loader" }
     ],
   },
