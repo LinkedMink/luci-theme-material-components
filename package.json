@@ -1,7 +1,7 @@
 {
   "name": "@linkedmink/luci-theme-material-components",
   "version": "1.0.0-0",
-  "description": "",
+  "description": "An OpenWrt LuCI theme package based on Material Components",
   "keywords": [
     "OpenWrt",
     "LuCI",
@@ -34,7 +34,7 @@
     "start": "webpack serve --config webpack.dev.ts",
     "build": "webpack --config webpack.prod.ts",
     "postinstall": "husky install || cd .",
-    "lint": "echo NotImplemented",
+    "lint": "eslint src/*.ts src/components/*.ts *.{,c,m}js",
     "test:ci": "echo NotImplemented",
     "version": "npm run build && git add ."
   },
@@ -53,8 +53,14 @@
   },
   "devDependencies": {
     "@tsconfig/node18": "^1.0.1",
+    "@types/eslint": "^8.21.0",
     "@types/node": "^18.11.18",
+    "@typescript-eslint/eslint-plugin": "^5.51.0",
+    "@typescript-eslint/parser": "^5.51.0",
+    "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.7.3",
+    "eslint": "^8.33.0",
+    "eslint-config-prettier": "^8.6.0",
     "husky": "^8.0.3",
     "lint-staged": "^13.1.0",
     "postcss": "^8.4.21",

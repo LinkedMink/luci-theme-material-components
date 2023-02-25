@@ -1,4 +1,5 @@
 import path from "node:path";
+import CopyWebpackPlugin from "copy-webpack-plugin";
 import { Configuration } from "webpack";
 import { merge } from "webpack-merge";
 import type { Configuration as DevServerConfiguration } from "webpack-dev-server";
@@ -19,6 +20,13 @@ const config: Configuration = {
     path: publicRootDir,
   },
   devServer: devServerConfig,
+  plugins: [
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: path.join(__dirname, "src/assets"), to: path.join(publicRootDir, "assets") },
+      ],
+    }),
+  ],
 };
 
 export default merge(commonWebpackConfig, config);

@@ -1,2 +1,1 @@
-import SyncIcon from './assets/sync.svg'
-
+export * as SyncIcon from './assets/sync.svg'

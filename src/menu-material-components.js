@@ -1,7 +1,11 @@
+// @ts-check
+/// <reference path="./types/luci.d.ts" />
+
 "use strict";
 "require baseclass";
 "require ui";
 
+// @ts-ignore
 return baseclass.extend({
   __init__: function () {
     ui.menu.load().then(L.bind(this.render, this));

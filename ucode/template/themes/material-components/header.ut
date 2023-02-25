@@ -6,7 +6,6 @@
 
   http.prepare_content('text/html; charset=UTF-8');
 -%}
-
 <!DOCTYPE html>
 <html lang="{{ dispatcher.lang }}">
 <head>
